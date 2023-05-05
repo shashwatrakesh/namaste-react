@@ -1,0 +1,18 @@
+What is CDN? Why do we use CDN?
+What is cross origin?
+
+Everything is rendered inside a root in react. So while creating a DOM react needs a root. Take the root element from HTML and put it inside the root of react.
+This way we have the root of HTML inside which everything is rendered. And through the “”react” root the browser knows that react is being rendered.
+
+React.createElement => gives an object and props are found in those: 
+const heading = React.createElement(
+  "h1",
+  { id: "heading" }, : attributes
+  "Hello World from React!" : children
+);
+Props: are found in a react element; = attributes
+children +  "" — See bolded section above. {}
+
+The createElement is not an h1 tag yet. It’s a javascript object. When this javascript object is passed in the root.render(object) then it gives an h1 tag. This tag is then put inside the root element. After putting it inside it gets converted to HTML.
+
+React can only be applied to a small section of the page. Therefore its called a LIBRARY.
