@@ -1,0 +1,62 @@
+Package.json is a configuration for json. Keeps a track of all the package versions installed.
+Packages == dependencies (Our product is dependent on …)
+
+Important packages: bundler: bundles our code; the different HTML, JS files. After bundling the code can be shifted to production.
+
+Create-react-app: uses webpack bundler and babel behind the scenes
+
+2 types of dependencies: 
+Dev dependency: It means it is generally required in the development environment.
+Normal Dependency: It is also required in production environment.
+
+~ VS ^: 
+~ will will update you to all future patch versions, without incrementing the minor version. ~1.2.3 will use releases from 1.2.3 to <1.3.0.
+^ will will update you to all future minor/patch versions, without incrementing the major version. ^2.3.4 will use releases from 2.3.4 to <3.0.0.
+
+Package-lock.json: It keeps a track of the exact version installed. For example if we have v: ^2.3.4 in package.json (approximate version) and there is an updated version 2.4.6; this v2.4.6 will be updated in the package-lock.json 
+
+Node modules: container all the code that we fetched from the npm repository. The code for the package or dependencies. For example: the actual parcel code.
+
+Transitive dependency: Our project is dependent on PARCEL. Same way PARCEL has its own dependencies. Those dependencies will have their own dependencies.
+AND each dependency has package.json and package-lock.json which has its own dependencies. These are available in node modules.
+
+Package-lock json maintains the exact dependency version for transitive dependencies as well. That is why it is so big.
+
+Using package.json and package-lock.json , node modules can be recovered.
+
+npm: installing a package
+npx: executinh a package 
+
+How to inject react: 
+1. through CDN links (not a good way: make a network call; big overhead, Keep changing the react version in the script src.)
+2. Through node modules: it will keep account of the latest react version and its dependency versions. import statement.
+
+Browser scripts: Browser scripts are custom-defined JavaScript functions that are located inside of your browser window.  They are present in HTML files under the script tags.
+
+Parcel features: (System design for making production ready application.)
+1. Dev Build
+2. Local Server
+3. HMR - Hot Module Replacement: uses a File Watching Algorithm - written in C++.
+4. Caching Faster Builds
+5. Image Optimization (putting image in HTML are the most expensive task)
+6. Minification
+7. Bundling
+8. Compress
+9. Content Hashing -  Parcel automatically includes content hashes in the names of all output files. This enables long-term browser caching, because the output is guaranteed not to change unless the name does.
+10. Code Splitting - This allows you to split your application code into separate bundles which can be loaded on demand, resulting in smaller initial bundle sizes and faster load times.
+11. Differential bundling - our app runs on internet explorer as well as other browsers. It can also run on older version of those browsers. So Differential bundling is the support on older browsers. (Something like lazy loading; so the different bundles are loaded when needed )
+12. Diagnostics
+13. Error Handling
+14. Hosting on HTTPs
+15. Tree Shaking - remove unused code (for example: if we are only using some functions Ann not using the others it will remove the other code)
+16. Lazy dev builds - The server starts quickly, and when you navigate to a page for the first time, Parcel builds only the files necessary for that page. When you navigate to another page, that page will be built on demand. If you navigate back to a page that was previously built, it loads instantly.
+17. Different dev and production bundles - these files are stored in dist folder.
+
+Parcel documentation is one of the best written documentation. Use this as an example for documentation when you have to write.
+
+In package.json: main: App.js — it’s the entry point for our app. For ex npx parcel build index.html will have a conflict with this. As this line is saying that index.html is our entry point. 
+
+Production build will have 3 files: html, js and css. All the js files will be compressed into one. Same with css and html files.
+
+Browserslist: In what browsers will the application work 100%. It will work in others as well it might or might not work 100%.
+https://browserslist.dev/?q=bGFzdCAxMCBjaHJvbWUgdmVyc2lvbnM%3D
