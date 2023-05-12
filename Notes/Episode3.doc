@@ -1,0 +1,35 @@
+Creating a script: 
+For starting our project in dev mode:  Add “start”: “parcel index.html” in the scripts of package.json
+Then give the command ‘npm run start’ in the terminal. Then npm runs the same command ‘parcel index.html’ on then terminal.
+
+JSX: developed to make it easy to write HTML elements.
+JSX is different from React. React can be written without JSX.
+JSX is not HTML inside javascript. It’s an HTML-like or XML-like syntax.
+JSX and createReactelement are one and the same thing and both gives back an object.
+JSX is not a valid javaScript per se (not pure). JS engine does not understand JSX. JS engine understands ECMAScript.
+Parcel transpiles (converted to the code browser can understand) the code and then sends to JS engine. That is why JS engine understands JSX. So parcel gives the responsibility to BABEL to convert JSX into JS (React Code). Behind the scenes JSX is converted to React.createElement => JS Object => HTML
+For multiple lines wrap the code with ().
+
+Attribute to JSX is given in camel case. 
+Find out about various attributes and various tags for JSX?
+
+React components
+1. Class Based components
+2. Functional Components
+
+Functional Component: Javascript function that returns a JSX element. The Functional Component name starts with CAPITAL LETTERS.
+
+Root.render(<REACT ELEMET>) => JSX components don’t go directly like react elements in this. For JSX components use 	root.render(<JSX Component/>)
+
+Component composition: Component inside component.
+
+const data = api.getData() => gets malicious data
+Use it in JSX component => {data}
+JSX escapes malicious data. Sanitize the data first. Prevents cross site scripting attacks.
+
+In a JSX there can be only 1 root level node. For use cases where we need more than 1 we can use React.Fragment. It behaves like an empty tag. Later JSX just made empty tags available for users.
+
+It is possible to have multiple render
+//using multiple roots	
+const root2 = ReactDOM.createRoot(document.getElementById("root2"));
+root2.render(titleElement); // Now it becomes an HTML element when we render it on the DOM.
