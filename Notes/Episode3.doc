@@ -19,7 +19,7 @@ React components
 
 Functional Component: Javascript function that returns a JSX element. The Functional Component name starts with CAPITAL LETTERS.
 
-Root.render(<REACT ELEMET>) => JSX components don’t go directly like react elements in this. For JSX components use 	root.render(<JSX Component/>)
+Root.render(<REACT COMPONENT/>) => JSX components don’t go directly like react elements in this. For JSX components use 	root.render(<JSX Component/>)
 
 Component composition: Component inside component.
 
